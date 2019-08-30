@@ -31,11 +31,8 @@
 *.out
 *.app
 
-# CMake
-CMakeFiles
-cmake_install.cmake
-CMakeCache.txt
-Makefile
+# NPM
+node_modules
 
-# Executable
-runTests
+# Node gyp
+build

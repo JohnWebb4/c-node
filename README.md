@@ -1,33 +1,33 @@
-# Data Structures
+# C Node
 
 ## Goal
 
-Implementing different data structures in C++
+Implementing Native addon for JavaScript.
 
 ## Setup
 
-Install [GTest](https://github.com/google/googletest)
+Install Gcc and make
 
-Install [CMake](https://cmake.org/)
+Install python 2.7
 
 Clone the project
 
 ```sh
-git clone https://github.com/JohnWebb4/data-structures.git
-cd data-structures
+git clone https://github.com/JohnWebb4/c-node.git
+cd c-node
+```
+
+Configure the project
+
+```sh
+npm run configure
 ```
 
 Build the project
 
 ```sh
-cmake .
+npm run build
 ```
-
-## Structures
-
-| Structure |
-| --------- |
-| Sorting   |
 
 ## License
 

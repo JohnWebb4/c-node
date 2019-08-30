@@ -2,9 +2,12 @@
   "name": "c-node",
   "version": "1.0.0",
   "description": "## Goal",
-  "main": "index.js",
+  "main": "src/index.js",
+  "gypfile": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node-gyp rebuild",
+    "clean": "node-gyp clean",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/JohnWebb4/data-structures/issues"
   },
-  "homepage": "https://github.com/JohnWebb4/data-structures#readme"
+  "homepage": "https://github.com/JohnWebb4/data-structures#readme",
+  "devDependencies": {
+    "node-gyp": "^5.0.3"
+  },
+  "dependencies": {}
 }
