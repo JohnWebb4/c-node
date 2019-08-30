@@ -1,11 +1,11 @@
-#include <node.h>
+#include <node_api.h>
 
 #ifndef INDEX_H
 
 #define INDEX_H
 
-void Hello(const v8::FunctionCallbackInfo<v8::Value>& args);
+napi_value Hello(napi_env env, napi_callback_info args);
 
-void Initialize(v8::Local<v8::Object> exports);
+napi_value Initialize(napi_env env, napi_value exports);
 
 #endif

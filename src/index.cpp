@@ -1,16 +1,28 @@
-#include <node.h>
+#include <node_api.h>
 
 #include "index.h"
 
-void Hello(const v8::FunctionCallbackInfo<v8::Value>& args) {
-  v8::Isolate* isolate = args.GetIsolate();
+napi_value Hello(napi_env env, napi_callback_info args) {
+  napi_value greeting;
+  napi_status status;
 
-  args.GetReturnValue().Set(v8::String::NewFromUtf8(
-    isolate, "world", v8::NewStringType::kNormal).ToLocalChecked());
+  status = napi_create_string_utf8(env, "world", NAPI_AUTO_LENGTH, &greeting);
+  if (status != napi_ok) return nullptr;
+
+  return greeting;
 }
 
-void Initialize(v8::Local<v8::Object> exports) {
-  NODE_SET_METHOD(exports, "hello", Hello);
+napi_value init(napi_env env, napi_value exports) {
+  napi_value hello;
+  napi_status status;
+
+  status = napi_create_function(env, nullptr, 0, Hello, nullptr, &hello);
+  if (status != napi_ok) return nullptr;
+
+  status = napi_set_named_property(env, exports, "hello", hello);
+  if (status != napi_ok) return nullptr;
+
+  return exports;
 }
 
-NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
+NAPI_MODULE(NODE_GYP_MODULE_NAME, init);
